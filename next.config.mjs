@@ -11,6 +11,7 @@ const nextConfig = {
         hostname: '**',
       },
     ],
+    unoptimized: true, // If you're using the default image component without optimization
   },
 
   eslint: {
@@ -21,9 +22,10 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
 
-  experimental: {
-    missingSuspenseWithCSRBailout: false,
-  },
+  // ❌ REMOVE unsupported experimental flag
+  // experimental: {
+  //   missingSuspenseWithCSRBailout: false,
+  // }
 }
 
 export default nextConfig
