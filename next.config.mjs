@@ -1,11 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
-  distDir: 'out',
+
   images: {
-    unoptimized: true,
     domains: ['placeholder.svg'],
     remotePatterns: [
       {
@@ -14,12 +12,15 @@ const nextConfig = {
       },
     ],
   },
+
   eslint: {
     ignoreDuringBuilds: true,
   },
+
   typescript: {
     ignoreBuildErrors: true,
   },
+
   experimental: {
     missingSuspenseWithCSRBailout: false,
   },
