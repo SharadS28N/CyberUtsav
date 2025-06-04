@@ -97,9 +97,7 @@ No environment variables required for basic deployment.
 - Verify configuration files are correct
 
 ## 📞 Support
+Sharad Bhandari,
+contact@cyberutsav.xyz
 
-For issues or questions, contact: contact@cyberutsav.xyz
-
-## 📄 License
-
-This project is licensed under the MIT License.
+![cyberutsav-bg](https://github.com/user-attachments/assets/4d0ca6da-8212-4770-8b73-1bcd3d05c24b)
