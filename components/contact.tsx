@@ -1,9 +1,51 @@
 "use client"
 
+import type React from "react"
+
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, User, Calendar } from "lucide-react"
+import { Mail, MapPin, Calendar } from "lucide-react"
+import { useState } from "react"
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        alert("Message sent successfully! We'll get back to you soon.")
+        setFormData({ name: "", email: "", subject: "", message: "" })
+      } else {
+        throw new Error("Failed to send message")
+      }
+    } catch (error) {
+      console.error("Contact form error:", error)
+      alert("Failed to send message. Please try again or contact us directly.")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }))
+  }
+
   return (
     <section id="contact" className="py-16 sm:py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,26 +75,6 @@ export default function Contact() {
           >
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
 
-            {/* Event Coordinator */}
-            <div className="bg-gradient-to-r from-purple-600 to-purple-800 rounded-xl p-6 text-white mb-6">
-              <div className="flex items-center mb-4">
-                <User className="h-6 w-6 mr-3" />
-                <h4 className="text-lg font-semibold">Event Coordinator</h4>
-              </div>
-              <div className="space-y-2">
-                <p className="font-semibold text-lg">Dikshant Pandey</p>
-                <p className="text-purple-100">CyberUtsav 2.0 Organizing Committee</p>
-                <div className="flex items-center mt-3">
-                  <Phone className="h-4 w-4 mr-2" />
-                  <span>9815210614 | 9705707707</span>
-                </div>
-                <div className="flex items-center">
-                  <Mail className="h-4 w-4 mr-2" />
-                  <span>contact@cyberutsav.xyz</span>
-                </div>
-              </div>
-            </div>
-
             {/* General Contact */}
             <div className="space-y-4">
               <div className="flex items-center p-4 bg-gray-50 rounded-lg">
@@ -67,7 +89,7 @@ export default function Contact() {
                 <MapPin className="h-6 w-6 text-purple-600 mr-4" />
                 <div>
                   <h5 className="font-semibold text-gray-900">Event Locations</h5>
-                  <p className="text-gray-600">Kathmandu, Pokhara, Chitwan, Butwal</p>
+                  <p className="text-gray-600">Kathmandu, Pokhara, Chitwan</p>
                 </div>
               </div>
 
@@ -75,9 +97,19 @@ export default function Contact() {
                 <Calendar className="h-6 w-6 text-purple-600 mr-4" />
                 <div>
                   <h5 className="font-semibold text-gray-900">Event Dates</h5>
-                  <p className="text-gray-600">July 5-7, 2025</p>
+                  <p className="text-gray-600">
+                    Kathmandu: Starting from 21st Ashad
+                    <br />
+                    Pokhara: Mid of Shrawan
+                    <br />
+                    Chitwan: Between End of Shrawan and Beginning of Bhadra
+                  </p>
                 </div>
               </div>
+            </div>
+            <div className="mt-6">
+              <p className="text-gray-600">Organized by: Tech Gurkha Digital Services Pvt. Ltd</p>
+              <p className="text-gray-600">Mentorship Support: Google Developer Group - Kathmandu (GDG Kathmandu)</p>
             </div>
           </motion.div>
 
@@ -91,7 +123,7 @@ export default function Contact() {
           >
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
 
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="contact-name" className="block text-sm font-medium text-gray-700 mb-2">
                   Your Name
@@ -99,8 +131,11 @@ export default function Contact() {
                 <input
                   type="text"
                   id="contact-name"
+                  value={formData.name}
+                  onChange={(e) => handleInputChange("name", e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="Enter your name"
+                  required
                 />
               </div>
 
@@ -111,8 +146,11 @@ export default function Contact() {
                 <input
                   type="email"
                   id="contact-email"
+                  value={formData.email}
+                  onChange={(e) => handleInputChange("email", e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="Enter your email"
+                  required
                 />
               </div>
 
@@ -123,8 +161,11 @@ export default function Contact() {
                 <input
                   type="text"
                   id="contact-subject"
+                  value={formData.subject}
+                  onChange={(e) => handleInputChange("subject", e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="What's this about?"
+                  required
                 />
               </div>
 
@@ -135,16 +176,20 @@ export default function Contact() {
                 <textarea
                   id="contact-message"
                   rows={5}
+                  value={formData.message}
+                  onChange={(e) => handleInputChange("message", e.target.value)}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="Your message..."
+                  required
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                disabled={isSubmitting}
+                className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors disabled:opacity-50"
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           </motion.div>

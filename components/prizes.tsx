@@ -7,21 +7,21 @@ export default function Prizes() {
   const prizes = [
     {
       position: "1st Place",
-      amount: "NRs. 50,000",
+      amount: "NRs. 30,000",
       icon: Trophy,
       color: "from-yellow-400 to-yellow-600",
       benefits: ["Cash Prize", "Internship Opportunities", "Mentorship Program", "Certificate"],
     },
     {
       position: "2nd Place",
-      amount: "NRs. 30,000",
+      amount: "NRs. 20,000",
       icon: Medal,
       color: "from-gray-400 to-gray-600",
       benefits: ["Cash Prize", "Internship Opportunities", "Certificate", "Goodies"],
     },
     {
       position: "3rd Place",
-      amount: "NRs. 20,000",
+      amount: "NRs. 10,000",
       icon: Award,
       color: "from-orange-400 to-orange-600",
       benefits: ["Cash Prize", "Certificate", "Goodies", "Recognition"],
@@ -29,9 +29,8 @@ export default function Prizes() {
   ]
 
   const specialPrizes = [
-    { title: "Best Innovation", amount: "NRs. 10,000", icon: "🚀" },
-    { title: "Best UI/UX", amount: "NRs. 8,000", icon: "🎨" },
-    { title: "Best Social Impact", amount: "NRs. 8,000", icon: "🌍" },
+    { title: "Best Innovation", amount: "NRs. 5,000", icon: "🚀" },
+    { title: "Best UI/UX", amount: "NRs. 5,000", icon: "🎨" },
     { title: "People's Choice", amount: "NRs. 5,000", icon: "❤️" },
   ]
 
@@ -49,7 +48,7 @@ export default function Prizes() {
             Prizes & <span className="text-purple-600">Rewards</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Compete for exciting prizes worth over NRs. 1,00,000 and amazing opportunities
+            Compete for exciting prizes worth over NRs. 65,000 and amazing opportunities
           </p>
         </motion.div>
 
@@ -92,7 +91,7 @@ export default function Prizes() {
           ))}
         </div>
 
-        {/* Special Prizes */}
+        {/* Special Prizes - Centered */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -104,21 +103,23 @@ export default function Prizes() {
             Special Category Prizes
           </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            {specialPrizes.map((prize, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center p-4 sm:p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl hover:shadow-md transition-shadow"
-              >
-                <div className="text-3xl sm:text-4xl mb-3">{prize.icon}</div>
-                <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">{prize.title}</h4>
-                <p className="text-xl sm:text-2xl font-bold text-purple-600">{prize.amount}</p>
-              </motion.div>
-            ))}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl">
+              {specialPrizes.map((prize, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="text-center p-4 sm:p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl hover:shadow-md transition-shadow"
+                >
+                  <div className="text-3xl sm:text-4xl mb-3">{prize.icon}</div>
+                  <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">{prize.title}</h4>
+                  <p className="text-xl sm:text-2xl font-bold text-purple-600">{prize.amount}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </motion.div>
 

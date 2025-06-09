@@ -29,7 +29,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-lg sm:text-xl md:text-2xl text-purple-100 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
-            The Ultimate 24-Hour Hackathon Experience. Code, Create, Compete, and Conquer!
+            The Ultimate 12-Hour Hackathon Experience. Code, Create, Compete, and Conquer!
           </p>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8 max-w-4xl mx-auto px-4">
@@ -41,17 +41,17 @@ export default function Hero() {
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4">
               <Users className="h-6 w-6 sm:h-8 sm:w-8 text-purple-200 mx-auto mb-2" />
               <p className="text-purple-100 text-xs sm:text-sm">Participants</p>
-              <p className="text-white font-semibold text-sm sm:text-base">400</p>
+              <p className="text-white font-semibold text-sm sm:text-base">150</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4">
               <MapPin className="h-6 w-6 sm:h-8 sm:w-8 text-purple-200 mx-auto mb-2" />
               <p className="text-purple-100 text-xs sm:text-sm">Cities</p>
-              <p className="text-white font-semibold text-sm sm:text-base">4 Major</p>
+              <p className="text-white font-semibold text-sm sm:text-base">3 Major</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4">
               <Clock className="h-6 w-6 sm:h-8 sm:w-8 text-purple-200 mx-auto mb-2" />
               <p className="text-purple-100 text-xs sm:text-sm">Prize Pool</p>
-              <p className="text-white font-semibold text-sm sm:text-base">NRs. 1L+</p>
+              <p className="text-white font-semibold text-sm sm:text-base">NRs. 65K+</p>
             </div>
           </div>
 

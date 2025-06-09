@@ -11,7 +11,7 @@ export default function FAQ() {
     {
       question: "Who can participate in CyberUtsav 2.0?",
       answer:
-        "The hackathon is open to all students, professionals, and tech enthusiasts from Nepal and abroad. You can participate individually or form teams of up to 4 members.",
+        "The hackathon is open to High School Students (Grade 10 to Bachelor 1st Year) from Nepal and abroad. You can participate individually or form teams of up to 4 members.",
     },
     {
       question: "What is the registration fee?",
@@ -20,7 +20,7 @@ export default function FAQ() {
     {
       question: "In which cities will the event be held?",
       answer:
-        "CyberUtsav 2.0 will be held simultaneously in 4 major cities: Kathmandu, Pokhara, Chitwan, and Butwal. You can choose to participate from any of these locations.",
+        "CyberUtsav 2.0 will be held simultaneously in 3 major cities: Kathmandu, Pokhara, and Chitwan. You can choose to participate from any of these locations.",
     },
     {
       question: "Do I need to have a team before registering?",
@@ -40,12 +40,27 @@ export default function FAQ() {
     {
       question: "Will there be mentors available?",
       answer:
-        "Yes! We have industry experts and experienced developers who will be available throughout the event to guide and mentor participants in all cities.",
+        "Yes! We have industry experts and experienced developers from GDG Kathmandu who will be available throughout the event to guide and mentor participants in all cities.",
     },
     {
       question: "How will projects be judged?",
       answer:
         "Projects will be evaluated based on innovation, technical implementation, design, presentation, and potential impact. Detailed judging criteria will be shared during the opening ceremony.",
+    },
+    {
+      question: "What is the theme for the hackathon?",
+      answer:
+        "CyberUtsav 2.0 features an open theme format, encouraging participants to explore diverse problem statements and create innovative solutions across various domains.",
+    },
+    {
+      question: "How will project management be handled?",
+      answer:
+        "We will be using GitHub for project management and collaboration. Participants are encouraged to use GitHub for version control, issue tracking, and collaborative coding.",
+    },
+    {
+      question: "How long is the hackathon?",
+      answer:
+        "CyberUtsav 2.0 is a 12-hour hackathon, providing a focused and intense environment for innovation and collaboration.",
     },
   ]
 

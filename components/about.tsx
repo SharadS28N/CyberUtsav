@@ -1,19 +1,19 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Code, Trophy, Users, Zap, MapPin, Clock } from "lucide-react"
+import { Code, Trophy, Users, Zap, MapPin, Clock, Heart } from "lucide-react"
 
 export default function About() {
   const features = [
     {
       icon: Code,
-      title: "24-Hour Challenge",
-      description: "Intensive 24-hour coding marathon to build innovative software solutions.",
+      title: "12-Hour Challenge",
+      description: "Intensive 12-hour coding marathon to build innovative software solutions.",
     },
     {
       icon: Trophy,
       title: "Compete & Win",
-      description: "Compete with the best minds and win exciting prizes worth NRs. 1L+.",
+      description: "Compete with the best minds and win exciting prizes worth NRs. 65K+.",
     },
     {
       icon: Users,
@@ -31,7 +31,6 @@ export default function About() {
     { name: "Kathmandu", description: "Capital City Hub" },
     { name: "Pokhara", description: "Tourist City" },
     { name: "Chitwan", description: "Central Region" },
-    { name: "Butwal", description: "Western Gateway" },
   ]
 
   return (
@@ -48,10 +47,43 @@ export default function About() {
             About <span className="text-purple-600">CyberUtsav 2.0</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            CyberUtsav 2.0 is a 24-hour hackathon where teams of 2-4 members build innovative software solutions.
-            Projects are committed to GitHub and teams are shortlisted based on their project ideas through short
-            videos.
+            CyberUtsav 2.0 is a 12-hour hackathon organized by Tech Gurkha Digital Services Pvt. Ltd where teams of 2-4
+            members build innovative software solutions. Projects are committed to GitHub and teams showcase their
+            creativity through innovative ideas.
           </p>
+        </motion.div>
+
+        {/* Diversity & Inclusion Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-12 sm:mb-16 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-6 sm:p-8 text-white"
+        >
+          <div className="text-center">
+            <Heart className="h-12 w-12 mx-auto mb-4 text-purple-200" />
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4">Diversity & Innovation</h3>
+            <p className="text-purple-100 mb-6 max-w-3xl mx-auto text-sm sm:text-base">
+              CyberUtsav 2.0 welcomes participants from all backgrounds and experiences. We believe diverse teams create
+              the most innovative solutions. We especially encourage underrepresented groups, including women in tech,
+              to participate and showcase their talents.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                <h4 className="text-lg font-semibold mb-2">Open to All</h4>
+                <p className="text-purple-100 text-sm">Everyone is welcome regardless of background or experience</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                <h4 className="text-lg font-semibold mb-2">Inclusive Environment</h4>
+                <p className="text-purple-100 text-sm">Safe and supportive space for all participants</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+                <h4 className="text-lg font-semibold mb-2">Equal Opportunities</h4>
+                <p className="text-purple-100 text-sm">Fair platform for innovation and recognition</p>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Event Highlights */}
@@ -66,7 +98,7 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
               <Clock className="h-10 w-10 mx-auto mb-3 text-purple-200" />
-              <h4 className="text-lg font-semibold mb-2">24-Hour Hackathon</h4>
+              <h4 className="text-lg font-semibold mb-2">12-Hour Hackathon</h4>
               <p className="text-purple-100 text-sm">Non-stop coding from Day 1 to Day 2</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
@@ -91,7 +123,7 @@ export default function About() {
           className="mb-12 sm:mb-16"
         >
           <h3 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-8">Event Cities</h3>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {cities.map((city, index) => (
               <motion.div
                 key={index}
@@ -139,14 +171,14 @@ export default function About() {
             <div>
               <h3 className="text-2xl sm:text-3xl font-bold mb-4">Why CyberUtsav 2.0?</h3>
               <p className="text-purple-100 mb-6 text-sm sm:text-base">
-                Experience the thrill of a 24-hour hackathon where innovation meets collaboration. Build real software
+                Experience the thrill of a 12-hour hackathon where innovation meets collaboration. Build real software
                 solutions and showcase your skills to industry experts across Nepal.
               </p>
               <ul className="space-y-2 text-purple-100 text-sm sm:text-base">
                 <li>• Software-focused projects only</li>
                 <li>• GitHub-based project management</li>
-                <li>• Video-based project idea submission</li>
                 <li>• Industry mentorship and guidance</li>
+                <li>• Inclusive and diverse community</li>
               </ul>
             </div>
             <div className="text-center">
@@ -154,19 +186,19 @@ export default function About() {
                 <h4 className="text-xl sm:text-2xl font-bold mb-2">Event Stats</h4>
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div>
-                    <p className="text-2xl sm:text-3xl font-bold">400</p>
+                    <p className="text-2xl sm:text-3xl font-bold">150</p>
                     <p className="text-purple-200 text-sm sm:text-base">Total Spots</p>
                   </div>
                   <div>
-                    <p className="text-2xl sm:text-3xl font-bold">24</p>
+                    <p className="text-2xl sm:text-3xl font-bold">12</p>
                     <p className="text-purple-200 text-sm sm:text-base">Hours</p>
                   </div>
                   <div>
-                    <p className="text-2xl sm:text-3xl font-bold">4</p>
+                    <p className="text-2xl sm:text-3xl font-bold">3</p>
                     <p className="text-purple-200 text-sm sm:text-base">Cities</p>
                   </div>
                   <div>
-                    <p className="text-2xl sm:text-3xl font-bold">NRs. 1L+</p>
+                    <p className="text-2xl sm:text-3xl font-bold">NRs. 65K+</p>
                     <p className="text-purple-200 text-sm sm:text-base">Prize Pool</p>
                   </div>
                 </div>

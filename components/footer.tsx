@@ -12,21 +12,24 @@ export default function Footer() {
               CyberUtsav 2.0
             </h3>
             <p className="text-gray-300 mb-4 max-w-md text-sm sm:text-base">
-              The ultimate 24-hour hackathon experience bringing together the brightest minds in technology across
+              The ultimate 12-hour hackathon experience bringing together the brightest minds in technology across
               Nepal. Code, create, compete, and conquer!
             </p>
             <div className="space-y-2 text-gray-300 text-sm sm:text-base">
               <div className="flex items-center">
                 <Calendar className="h-4 w-4 mr-2 flex-shrink-0" />
-                <span>July 5-7, 2025</span>
+                <span>July 5-7, 2024</span>
               </div>
               <div className="flex items-center">
                 <MapPin className="h-4 w-4 mr-2 flex-shrink-0" />
-                <span>Kathmandu, Pokhara, Chitwan, Butwal</span>
+                <span>Kathmandu, Pokhara, Chitwan</span>
               </div>
               <div className="flex items-center">
                 <Mail className="h-4 w-4 mr-2 flex-shrink-0" />
                 <span>contact@cyberutsav.xyz</span>
+              </div>
+              <div className="flex items-center">
+                <span>Organized by: Tech Gurkha Digital Services Pvt. Ltd</span>
               </div>
             </div>
           </div>
@@ -68,7 +71,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact & Social */}
+          {/* Connect With Us */}
           <div>
             <h4 className="text-base sm:text-lg font-semibold mb-4">Connect With Us</h4>
             <div className="space-y-2 text-gray-300 mb-4 text-sm sm:text-base">

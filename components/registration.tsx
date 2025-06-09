@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { User, Users, MapPin, Code, Video } from "lucide-react"
+import { User, Users, MapPin, Code } from "lucide-react"
 
 export default function Registration() {
   const [formData, setFormData] = useState({
@@ -36,43 +36,46 @@ export default function Registration() {
     city: "",
     projectIdea: "",
     techStack: "",
-    videoSubmission: "",
     agreeTerms: false,
   })
 
   const [registrationStats, setRegistrationStats] = useState({
     registered: 0,
-    spotsLeft: 400,
+    spotsLeft: 150,
   })
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   // Simulate real-time registration data
   useEffect(() => {
     const interval = setInterval(() => {
       setRegistrationStats((prev) => {
-        const newRegistered = Math.min(prev.registered + Math.floor(Math.random() * 3), 400)
+        const newRegistered = Math.min(prev.registered + Math.floor(Math.random() * 2), 150)
         return {
           registered: newRegistered,
-          spotsLeft: 400 - newRegistered,
+          spotsLeft: 150 - newRegistered,
         }
       })
     }, 30000) // Update every 30 seconds
 
     // Initial load
     setRegistrationStats({
-      registered: 247,
-      spotsLeft: 153,
+      registered: 87,
+      spotsLeft: 63,
     })
 
     return () => clearInterval(interval)
   }, [])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsSubmitting(true)
 
     // Validate team size
     const teamSizeNum = Number.parseInt(formData.teamSize)
     if (teamSizeNum < 2 || teamSizeNum > 4) {
       alert("Team size must be between 2 and 4 members.")
+      setIsSubmitting(false)
       return
     }
 
@@ -83,46 +86,71 @@ export default function Registration() {
         !formData[`member${i}Email` as keyof typeof formData]
       ) {
         alert(`Please fill in the name and email for team member ${i}.`)
+        setIsSubmitting(false)
         return
       }
     }
 
-    console.log("Registration submitted:", formData)
-    alert("Registration submitted successfully! We'll contact you soon with further details.")
+    try {
+      // Submit to Google Sheets
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
 
-    // Reset form
-    setFormData({
-      teamName: "",
-      teamSize: "",
-      member1Name: "",
-      member1Email: "",
-      member1Phone: "",
-      member1Institution: "",
-      member2Name: "",
-      member2Email: "",
-      member2Phone: "",
-      member2Institution: "",
-      member3Name: "",
-      member3Email: "",
-      member3Phone: "",
-      member3Institution: "",
-      member4Name: "",
-      member4Email: "",
-      member4Phone: "",
-      member4Institution: "",
-      city: "",
-      projectIdea: "",
-      techStack: "",
-      videoSubmission: "",
-      agreeTerms: false,
-    })
+      if (response.ok) {
+        alert("Registration submitted successfully! We'll contact you soon with further details.")
+
+        // Update registration stats
+        setRegistrationStats((prev) => ({
+          registered: Math.min(prev.registered + 1, 150),
+          spotsLeft: Math.max(prev.spotsLeft - 1, 0),
+        }))
+
+        // Reset form
+        setFormData({
+          teamName: "",
+          teamSize: "",
+          member1Name: "",
+          member1Email: "",
+          member1Phone: "",
+          member1Institution: "",
+          member2Name: "",
+          member2Email: "",
+          member2Phone: "",
+          member2Institution: "",
+          member3Name: "",
+          member3Email: "",
+          member3Phone: "",
+          member3Institution: "",
+          member4Name: "",
+          member4Email: "",
+          member4Phone: "",
+          member4Institution: "",
+          city: "",
+          projectIdea: "",
+          techStack: "",
+          agreeTerms: false,
+        })
+      } else {
+        throw new Error("Registration failed")
+      }
+    } catch (error) {
+      console.error("Registration error:", error)
+      alert("Registration failed. Please try again or contact us directly.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleInputChange = (field: string, value: string | boolean) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
-  const cities = ["Kathmandu", "Pokhara", "Chitwan", "Butwal"]
+  const cities = ["Kathmandu", "Pokhara", "Chitwan"]
   const teamSizeOptions = ["2", "3", "4"]
 
   const renderMemberFields = (memberNumber: number) => {
@@ -219,7 +247,7 @@ export default function Registration() {
             Register for <span className="text-purple-200">Cyber Utsav 2.0</span>
           </h2>
           <p className="text-lg sm:text-xl text-purple-100 max-w-3xl mx-auto px-4">
-            Form your team and secure your spot in the ultimate 24-hour hackathon!
+            Form your team and secure your spot in the ultimate 12-hour hackathon!
           </p>
         </motion.div>
 
@@ -233,7 +261,7 @@ export default function Registration() {
             <CardHeader className="text-center">
               <CardTitle className="text-xl sm:text-2xl text-gray-900">Team Registration Form</CardTitle>
               <CardDescription className="text-sm sm:text-base">
-                Register your team of 2-4 members for the 24-hour hackathon
+                Register your team of 2-4 members for the 12-hour hackathon
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -353,27 +381,6 @@ export default function Registration() {
                         className="text-sm"
                       />
                     </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="videoSubmission" className="flex items-center text-sm">
-                          <Video className="h-4 w-4 mr-2" />
-                          Project Idea Video URL *
-                        </Label>
-                        <Input
-                          id="videoSubmission"
-                          type="url"
-                          placeholder="YouTube/Drive link to your project idea video"
-                          value={formData.videoSubmission}
-                          onChange={(e) => handleInputChange("videoSubmission", e.target.value)}
-                          required
-                          className="text-sm"
-                        />
-                        <p className="text-xs text-gray-500">
-                          Upload a short video explaining your project idea for team shortlisting.
-                        </p>
-                      </div>
-                    </div>
                   </div>
                 </div>
 
@@ -394,16 +401,16 @@ export default function Registration() {
                     <a href="#" className="text-purple-600 hover:underline">
                       Privacy Policy
                     </a>
-                    . I understand that this is a 24-hour hackathon and all project work must be committed to GitHub.
+                    . I understand that this is a 12-hour hackathon and all project work must be committed to GitHub.
                   </Label>
                 </div>
 
                 <Button
                   type="submit"
                   className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 text-sm sm:text-lg"
-                  disabled={!formData.agreeTerms}
+                  disabled={!formData.agreeTerms || isSubmitting}
                 >
-                  Register Team for Cyber Utsav 2.0
+                  {isSubmitting ? "Submitting..." : "Register Team for Cyber Utsav 2.0"}
                 </Button>
               </form>
             </CardContent>
@@ -430,7 +437,7 @@ export default function Registration() {
                 <p className="text-purple-100 text-sm sm:text-base">Spots Left</p>
               </div>
               <div>
-                <p className="text-2xl sm:text-3xl font-bold text-purple-200">400</p>
+                <p className="text-2xl sm:text-3xl font-bold text-purple-200">150</p>
                 <p className="text-purple-100 text-sm sm:text-base">Total Capacity</p>
               </div>
             </div>
@@ -438,11 +445,11 @@ export default function Registration() {
               <div className="bg-white/20 rounded-full h-2">
                 <div
                   className="bg-purple-300 h-2 rounded-full transition-all duration-1000"
-                  style={{ width: `${(registrationStats.registered / 400) * 100}%` }}
+                  style={{ width: `${(registrationStats.registered / 150) * 100}%` }}
                 ></div>
               </div>
               <p className="text-purple-100 text-sm mt-2">
-                {Math.round((registrationStats.registered / 400) * 100)}% Full
+                {Math.round((registrationStats.registered / 150) * 100)}% Full
               </p>
             </div>
           </div>

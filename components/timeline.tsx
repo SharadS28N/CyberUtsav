@@ -8,51 +8,55 @@ export default function Timeline() {
     {
       day: "Day 1",
       date: "July 5, 2025",
-      title: "Opening Ceremony & Hackathon Kickoff",
+      title: "Opening and Start of Hackathon",
       events: [
         {
-          time: "8:00 AM",
-          title: "Registration & Check-in Opens",
-          description: "Welcome and participant registration",
+          time: "8:00 AM - 9:00 AM",
+          title: "Participant Registration",
+          description: "",
         },
-        { time: "9:00 AM", title: "Opening Ceremony Begins", description: "Official event inauguration" },
+        { time: "9:00 AM - 9:30 AM", title: "High Tea and Buffer Time", description: "" },
         {
-          time: "9:30 AM",
-          title: "Welcoming of Chief & Special Guests",
-          description: "Guest introductions and welcome",
+          time: "9:30 AM - 10:30 AM",
+          title: "Opening Ceremony (with Chief Guest)",
+          description: "",
         },
-        { time: "10:00 AM", title: "Speeches by Guests & Dignitaries", description: "Keynote speeches and motivation" },
+        { time: "10:30 AM - 11:00 AM", title: "Break", description: "" },
         {
-          time: "10:30 AM",
-          title: "Hackathon Guidelines & Team Orientation",
-          description: "Rules, guidelines, and team formation",
+          time: "11:00 AM - 5:00 PM",
+          title: "Hackathon Session (6 hours)",
+          description: "",
         },
-        { time: "11:00 AM", title: "Hackathon Officially Begins", description: "24-hour coding marathon starts!" },
       ],
     },
     {
       day: "Day 2",
       date: "July 6, 2025",
-      title: "Hackathon Wrap-Up & Exit",
+      title: "Full-Day Hackathon Session",
       events: [
-        { time: "11:00 AM", title: "Hackathon Ends", description: "24-hour coding period concludes" },
-        { time: "11:10 AM", title: "Buffer Time for Final Submission", description: "Last-minute project submissions" },
-        { time: "11:30 AM", title: "Participants Depart", description: "Rest and preparation for presentations" },
+        { time: "9:00 AM - 9:30 AM", title: "Arrival and High Tea", description: "" },
+        { time: "9:30 AM - 11:00 AM", title: "Remarks by Technology Experts", description: "" },
+        {
+          time: "11:00 AM - 5:00 PM",
+          title: "Hackathon Session (6 hours)",
+          description: "",
+        },
+        { time: "5:00 PM - 5:15 PM", title: "Buffer Time", description: "" },
+        { time: "After 5:15 PM", title: "Return Home", description: "" },
       ],
     },
     {
       day: "Day 3",
       date: "July 7, 2025",
-      title: "Final Presentations & Closing Ceremony",
+      title: "Presentations and Closing Ceremony",
       events: [
-        { time: "10:30 AM", title: "Arrival & Seating", description: "Participants and judges arrive" },
-        { time: "11:00 AM", title: "Final Project Presentations Begin", description: "Teams present their solutions" },
-        { time: "1:00 PM", title: "Lunch Break", description: "Networking and refreshments" },
-        { time: "1:45 PM", title: "Judging & Evaluation", description: "Judges evaluate all projects" },
-        { time: "2:30 PM", title: "Certificate Distribution", description: "Participation certificates for all" },
-        { time: "3:00 PM", title: "Awards & Prizes Distribution", description: "Winners announcement and prizes" },
-        { time: "3:30 PM", title: "Closing Ceremony & Vote of Thanks", description: "Event conclusion and gratitude" },
-        { time: "4:00 PM", title: "End of Program", description: "Official event closure" },
+        { time: "9:00 AM - 9:30 AM", title: "High Tea and Arrival", description: "" },
+        { time: "9:30 AM - 10:00 AM", title: "Welcome of Judges", description: "" },
+        { time: "10:00 AM - 1:00 PM", title: "Final Project Presentations", description: "" },
+        { time: "1:00 PM - 2:00 PM", title: "Break and Networking", description: "" },
+        { time: "2:00 PM - 2:45 PM", title: "Remarks from Judges", description: "" },
+        { time: "2:45 PM - 3:15 PM", title: "Certificate Distribution", description: "" },
+        { time: "3:15 PM - 4:15 PM", title: "Prize Distribution and Closing Ceremony", description: "" },
       ],
     },
   ]
@@ -71,7 +75,7 @@ export default function Timeline() {
             Event <span className="text-purple-600">Timeline</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            A carefully planned 3-day journey with a 24-hour hackathon at its core
+            A carefully planned 3-day journey with a 12-hour hackathon across 3 days
           </p>
         </motion.div>
 
