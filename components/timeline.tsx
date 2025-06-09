@@ -76,6 +76,7 @@ export default function Timeline() {
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             A carefully planned 3-day journey with a 12-hour hackathon across 3 days
+            Starting from Kathmandu on 5th of July
           </p>
         </motion.div>
 

@@ -128,7 +128,7 @@ export default function FAQ() {
         >
           <p className="text-gray-600 mb-4 text-sm sm:text-base">Still have questions?</p>
           <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-colors text-sm sm:text-base">
-            Contact Us
+          <a href="#contact" target="_blank">Contact Us</a>
           </button>
         </motion.div>
       </div>

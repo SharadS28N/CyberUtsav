@@ -173,7 +173,7 @@ export default function Team() {
               you'd like to be part of our mission.
             </p>
             <button className="bg-white text-purple-600 hover:bg-purple-50 px-6 sm:px-8 py-3 rounded-lg font-semibold transition-colors text-sm sm:text-base">
-              Contact Us
+              <a href="https://forms.gle/U5uQ1DF2F7jpShFv7" target="_blank">Become Volunteer</a>
             </button>
           </div>
         </motion.div>
