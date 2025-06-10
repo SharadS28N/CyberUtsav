@@ -76,7 +76,7 @@ export default function Contact() {
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
 
             {/* General Contact */}
-            <div className="space-y-4">
+            <div className="space-y-2">
               <div className="flex items-center p-4 bg-gray-50 rounded-lg">
                 <Mail className="h-6 w-6 text-purple-600 mr-4" />
                 <div>
@@ -98,18 +98,10 @@ export default function Contact() {
                 <div>
                   <h5 className="font-semibold text-gray-900">Event Dates</h5>
                   <p className="text-gray-600">
-                    Kathmandu: Starting from 21st Ashad
-                    <br />
-                    Pokhara: Mid of Shrawan
-                    <br />
-                    Chitwan: Between End of Shrawan and Beginning of Bhadra
+                    Starting From 21st Ashad at Kathmandu
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="mt-6">
-              <p className="text-gray-600">Organized by: Tech Gurkha Digital Services Pvt. Ltd</p>
-              <p className="text-gray-600">Mentorship Support: Google Developer Group - Kathmandu (GDG Kathmandu)</p>
             </div>
           </motion.div>
 

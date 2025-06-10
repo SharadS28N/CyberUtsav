@@ -24,10 +24,10 @@ export default function Team() {
       bio: "Senior Software Engineer and hackathon mentor",
       image: "/sharad-bhandari.jpg",
       social: {
-        linkedin: "#",
-        twitter: "#",
-        github: "#",
-        email: "sharad@cyberutsav.xyz",
+        linkedin: "https://www.linkedin.com/in/sharadb2/",
+        twitter: "https://x.com/SharadS28N",
+        github: "https://github.com/SharadS28N",
+        email: "sharad.bhandari222@gmail.com",
       },
     },
     {
@@ -36,8 +36,8 @@ export default function Team() {
       bio: "Expert in event management and logistics coordination",
       image: "/sajwal-chaulagain.jpg",
       social: {
-        linkedin: "#",
-        twitter: "#",
+        linkedin: "https://www.linkedin.com/in/desajwal/",
+        twitter: "https://x.com/sajwal02",
         github: "#",
         email: "sajwal@cyberutsav.xyz",
       },
@@ -48,7 +48,7 @@ export default function Team() {
       bio: "Digital marketing specialist with focus on tech events",
       image: "/sanskar-shrestha.jpg",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/dikshant-pandey1/",
         twitter: "#",
         github: "#",
         email: "sanskar@cyberutsav.xyz",
