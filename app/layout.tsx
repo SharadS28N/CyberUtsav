@@ -6,6 +6,9 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  icons: {
+    icon: '/logo.png', // /public path
+  },
   title: "CyberUtsav 2.0 - The Ultimate Hackathon Experience",
   description:
     "Join CyberUtsav 2.0, a 4-day hackathon bringing together the brightest minds in technology. Code, create, compete, and conquer with prizes worth ₹1L+!",
