@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   icons: {
-    icon: '/logo.png', // /public path
+    icon: '/icon.png', // /public path
   },
   title: "CyberUtsav 2.0 - The Ultimate Hackathon Experience",
   description:

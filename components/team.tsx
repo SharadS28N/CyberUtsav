@@ -46,7 +46,7 @@ export default function Team() {
       name: "Sanskar Shrestha",
       role: "Marketing Head",
       bio: "Digital marketing specialist with focus on tech events",
-      image: "/sansakar-shrestha.jpg",
+      image: "/sanskar-shrestha.jpg",
       social: {
         linkedin: "#",
         twitter: "#",
